@@ -14,7 +14,21 @@ SmartFlix is a full-stack AI-powered movie recommendation web app. It helps user
 - 
 ## 🧱 Architecture
 
-![Architecture Diagram](docs/architecture.png) <!-- you will generate this later -->
+                 ┌─────────────────────────────┐
+                 │        User (Web UI)        │
+                 └────────────┬────────────────┘
+                              │
+                      HTTP Requests
+                              ▼
+       ┌────────────────────────────────────────────┐
+       │        Flask Backend (Python API)          │
+       │        + Recommendation Engine             │
+       └────┬───────────────────────┬───────────────┘
+            │                       │
+            ▼                       ▼
+     TMDB API for Movie Data   AWS Services (below)
+
+
 
 ## 🧰 Tech Stack
 
