@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SmartFlix – Movie Mood Match 🎬</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto&display=swap" rel="stylesheet" />
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font-family: "Roboto", sans-serif;
+      background: url("https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1400&q=80")
+        no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1;
+    }
+
+    .content-box {
+      z-index: 2;
+      padding: 40px;
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(6px);
+      max-width: 500px;
+      width: 90%;
+      color: white;
+      text-align: center;
+    }
+
+    .smartflix-title {
+      font-family: "Orbitron", sans-serif;
+      font-size: 4rem;
+      font-weight: 900;
+      background: linear-gradient(45deg, #ffd700, #ff8c00);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 4s ease infinite alternate;
+      text-shadow: 0 0 5px #ffd700, 0 0 10px #ff8c00, 0 0 20px #ff8c00, 0 0 40px #ffd700;
+      margin-bottom: 1rem;
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .btn-glow {
+      background-color: #ff8c00;
+      border: none;
+      color: white;
+      box-shadow: 0 0 10px #ff8c00;
+      transition: all 0.3s ease;
+    }
+
+    .btn-glow:hover {
+      background-color: #e07b00;
+      box-shadow: 0 0 20px #ff8c00;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="content-box">
+      <h1 class="smartflix-title">🎬 SmartFlix</h1>
+      <p>Your mood. Our recommendations. Let the movie night begin.</p>
+
+      <form action="/recommend" method="post">
+        <div class="mb-3">
+          <label for="mood" class="form-label">Choose your mood:</label>
+          <select name="mood" id="mood" class="form-select">
+            <option value="happy">Happy 😊</option>
+            <option value="sad">Sad 😢</option>
+            <option value="excited">Excited 🔥</option>
+            <option value="curious">Curious 🧠</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-glow w-100">🎥 Recommend Movies</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+
